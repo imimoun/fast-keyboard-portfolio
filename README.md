@@ -37,7 +37,7 @@ ng build
 ## Building GitHub Pages
 
 ```bash
-ng build --output-path docs --base-href /angular-hw-app/
+ng build --output-path docs --base-href /fast-keyboard-portfolio/
 mv docs/browser/* docs/
 ```
 
