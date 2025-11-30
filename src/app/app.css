@@ -1,0 +1,76 @@
+.typing-area {
+    position: relative;
+    width: 100%;
+}
+
+.level-table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+.level-table tr {
+    height: 40px;
+}
+
+.level-table td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.target-table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.target-table td {
+    padding: 10px;
+    border: 1px solid black;
+    min-height: 40px;
+    white-space: pre-wrap;
+    text-align: left;
+}
+
+.correct-text {
+    font-weight: bold;
+}
+
+.next-char {
+    text-decoration: underline;
+}
+
+.error-text {
+    color: red;
+    font-weight: bold;
+    text-decoration-color: red;
+}
+
+.superimposed-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    color: transparent;
+    caret-color: transparent;
+    background: transparent;
+    border: none;
+    outline: none;
+    z-index: 10;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+footer{
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0px;
+    background-color: #f8f8f8;
+    width: 100%;
+}
