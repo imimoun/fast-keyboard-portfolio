@@ -1,0 +1,20 @@
+<div class="typing-area">
+    <table class="target-table">
+        <tr>
+            <td>
+                <span [innerHTML]="highlightedTargetWordHtml()"></span>
+            </td>
+        </tr>
+    </table>
+
+    <input
+        class="superimposed-input"
+        [ngModel]="typingService.inputValue()"
+        (keydown)="handleKeydown($event)"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+    >
+</div>
+<p hidden>{{ typingService.inputValue() }}</p>

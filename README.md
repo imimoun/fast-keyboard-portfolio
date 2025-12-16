@@ -2,7 +2,7 @@
 
 # Fast Keyboard Portfolio
 Stand alone page to learn writing fast in hebrew keyboards.<br />
-This project was created in 24h using Gemini AI.
+The MVP was created in 24h using Gemini AI.
 
 ## Motivation
 I created this project to:

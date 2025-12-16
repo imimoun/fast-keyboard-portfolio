@@ -1,53 +1,11 @@
 <main>
     <h1>Keyboard Typing Training</h1>
 
-    <table class="level-table">
-        <tr>
-            <th>Previous Level</th>
-            <th>Current Level</th>
-            <th>Next Level</th>
-        </tr>
-        <tr>
-            <td>
-                {{ previousLevelName }}<br />
-                {{ previousLevelCharacterSet }}
-            </td>
-            <td>
-                {{ currentLevelName }}<br />
-                {{ currentLevelCharacterSet }}
-            </td>
-            <td>
-                {{ nextLevelName }}<br />
-                {{ nextLevelCharacterSet }}
-            </td>
-        </tr>
-    </table>
+    <app-level-info></app-level-info>
 
     <p>Type the text below:</p>
 
-    <div class="typing-area">
-        <table class="target-table">
-            <tr>
-                <td>
-                    <span [innerHTML]="getHighlightedTargetWordHtml()"></span>
-                </td>
-            </tr>
-        </table>
-
-        <input
-            #typingInput type="text"
-            class="superimposed-input"
-            [(ngModel)]="inputValue"
-            (ngModelChange)="handleInputChange()"
-            (keydown)="handleKeydown($event)"
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-        >
-    </div>
-
-    <p hidden>{{ inputValue }}</p>
+    <app-typing-area></app-typing-area>
 </main>
 <router-outlet />
 
