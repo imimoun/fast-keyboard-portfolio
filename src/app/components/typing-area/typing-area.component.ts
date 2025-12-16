@@ -14,29 +14,7 @@ import { TypingService } from '../../services/typing.service';
     selector: 'app-typing-area',
     standalone: true,
     imports: [CommonModule, FormsModule],
-    template: `
-        <div class="typing-area">
-            <table class="target-table">
-                <tr>
-                    <td>
-                        <span [innerHTML]="highlightedTargetWordHtml()"></span>
-                    </td>
-                </tr>
-            </table>
-
-            <input
-                #typingInput type="text"
-                class="superimposed-input"
-                [ngModel]="typingService.inputValue()"
-                (keydown)="handleKeydown($event)"
-                autocomplete="off"
-                autocorrect="off"
-                autocapitalize="off"
-                spellcheck="false"
-            >
-        </div>
-        <p hidden>{{ typingService.inputValue() }}</p>
-    `
+    templateUrl: './typing-area.component.html'
 })
 
 export class TypingAreaComponent implements AfterViewInit {
