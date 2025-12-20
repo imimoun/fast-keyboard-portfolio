@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TypingService } from '../../services/typing.service';
 
 @Component({
@@ -19,7 +18,6 @@ import { TypingService } from '../../services/typing.service';
 
 export class TypingAreaComponent implements AfterViewInit {
     public typingService = inject(TypingService);
-    private sanitizer = inject(DomSanitizer);
 
     @ViewChild('typingInput') inputElement!: ElementRef<HTMLInputElement>;
 
@@ -29,43 +27,17 @@ export class TypingAreaComponent implements AfterViewInit {
         }, 0);
     }
 
-    /**
-     * Generates the HTML string for the target word with current progress highlighting.
-     * @returns A SafeHtml object that Angular will render without sanitizing.
-     */
-    public highlightedTargetWordHtml(): SafeHtml {
-        let htmlString = '';
+    public getCharClass(index: number): string {
         const inputValue = this.typingService.inputValue();
-        const targetWord = this.typingService.targetWord();
         const errorIndices = this.typingService.errorIndices();
-
         const typedLength = inputValue.length;
-        const nextCharIndex = typedLength;
 
-        for (let i = 0; i < typedLength; i++) {
-            const char = targetWord[i];
-            const isError = errorIndices.includes(i);
-            const className = isError ? 'error-text' : 'correct-text';
-            htmlString += `<span class="${className}">${char}</span>`;
+        if (index < typedLength) {
+            return errorIndices.includes(index) ? 'error-text' : 'correct-text';
+        } else if (index === typedLength) {
+            return errorIndices.includes(index) ? 'error-text' : 'next-char';
         }
-
-        const nextChar = targetWord.substring(
-            nextCharIndex,
-            nextCharIndex + 1
-        );
-
-        if (nextCharIndex < targetWord.length) {
-            const isCurrentCharError = errorIndices.includes(nextCharIndex);
-
-            const nextCharClassName = isCurrentCharError ? 'error-text' : 'next-char';
-
-            htmlString += `<span class="${nextCharClassName}"><u>${nextChar}</u></span>`;
-
-            const remainingPart = targetWord.substring(nextCharIndex + 1);
-            htmlString += `<span>${remainingPart}</span>`;
-        }
-
-        return this.sanitizer.bypassSecurityTrustHtml(htmlString);
+        return '';
     }
 
     handleKeydown(event: KeyboardEvent): void {

@@ -2,12 +2,19 @@
     <table class="target-table">
         <tr>
             <td>
-                <span [innerHTML]="highlightedTargetWordHtml()"></span>
+                @for (char of typingService.targetWord(); track $index) {
+                <span
+                    [class]="getCharClass($index)"
+                    [class.underline]="$index === typingService.inputValue().length"
+                    [textContent]="char"
+                ></span>
+                }
             </td>
         </tr>
     </table>
 
     <input
+        #typingInput
         class="superimposed-input"
         [ngModel]="typingService.inputValue()"
         (keydown)="handleKeydown($event)"
