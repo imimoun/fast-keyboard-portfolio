@@ -5,6 +5,7 @@ import { TypingService } from '../../services/typing.service';
     selector: 'app-level-info',
     standalone: true,
     templateUrl: './level-info.component.html',
+    styleUrl: './level-info.component.css',
 })
 
 export class LevelInfoComponent {

@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LevelInfoComponent } from './components/level-info/level-info.component';
 import { TypingAreaComponent } from './components/typing-area/typing-area.component';
+import packageJson from '../../package.json';
 
 @Component({
     selector: 'app-root',
@@ -12,4 +13,6 @@ import { TypingAreaComponent } from './components/typing-area/typing-area.compon
     encapsulation: ViewEncapsulation.None
 })
 
-export class App {}
+export class App {
+    public version: string = packageJson.version;
+}
