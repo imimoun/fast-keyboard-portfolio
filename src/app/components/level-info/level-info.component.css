@@ -1,0 +1,22 @@
+.level-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.level-table th, .level-table td {
+    padding: 15px 10px;
+    text-align: center;
+    border: 1px solid #C5CAE9;
+}
+
+.level-table th {
+    background-color: #3F51B5;
+    color: white;
+}
+
+.level-table td {
+    background-color: #E8EAF6;
+    color: #444;
+}

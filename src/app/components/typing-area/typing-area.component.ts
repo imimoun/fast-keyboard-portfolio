@@ -13,7 +13,8 @@ import { TypingService } from '../../services/typing.service';
     selector: 'app-typing-area',
     standalone: true,
     imports: [CommonModule, FormsModule],
-    templateUrl: './typing-area.component.html'
+    templateUrl: './typing-area.component.html',
+    styleUrl: './typing-area.component.css'
 })
 
 export class TypingAreaComponent implements AfterViewInit {
